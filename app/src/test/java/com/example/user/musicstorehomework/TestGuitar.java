@@ -19,7 +19,7 @@ public class TestGuitar {
 
     @Test
     public void testGuitarSound() throws Exception {
-        assertEquals("The sound I make is dung", guitar.play());
+        assertEquals("The sound I make is twang", guitar.play());
     }
 
     @Test

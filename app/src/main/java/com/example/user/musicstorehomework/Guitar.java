@@ -16,7 +16,7 @@ public class Guitar extends Instrument{
     }
 
     public String play(){
-        return super.play() + "dung";
+        return super.play() + "twang";
     }
 
 

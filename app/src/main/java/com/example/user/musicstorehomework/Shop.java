@@ -20,35 +20,18 @@ public class Shop {
         return stock;
     }
 
-    public void generateStock(){
-        //loops through sellable items and adds them to stock
+    public void addItemToStock(Sellable sellable) {stock.add(sellable);}
 
+    public void removeItemFromStock(Sellable item){
+        stock.remove(item);
     }
 
-    public void addGuitarToStock(Guitar guitar) {
-        stock.add(guitar);
+    public int totalProfit(){
+        int margin = 0;
+        for (Sellable item : stock){
+            margin += item.calculateMarkup();
+        }
+        return margin;
     }
-
-    public void addTrumpetToStock(Trumpet trumpet) {
-        stock.add(trumpet);
-    }
-
-    public void addSheetMusicToStock(SheetMusic sheetMusic){
-        stock.add(sheetMusic);
-    }
-
-    public void addPlectrumToStock(Plectrum plectrum) {
-        stock.add(plectrum);
-    }
-
-    public Sellable remove(){
-        return stock.remove(0);
-    }
-//
-//    public int totalProfit(){
-//        //loops through all items in stock
-//        //calls calculate markup on each and adds them to a variable tally
-//        //returns tally
-//    }
 
 }

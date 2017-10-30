@@ -27,27 +27,36 @@ public class TestShop {
 
     @Test
     public void testAddGuitarToStock() throws Exception {
-        shop.addGuitarToStock(guitar);
+        shop.addItemToStock(guitar);
         assertEquals(1, shop.getStock().size());
     }
 
     @Test
-    public void testAddTrumpetToStock() throws Exception {
-        shop.addTrumpetToStock(trumpet);
+    public void testAddItemToStock() throws Exception {
+        shop.addItemToStock(trumpet);
         assertEquals(1, shop.getStock().size());
     }
 
     @Test
-    public void testAddSheetMusicToStock() throws Exception {
-        shop.addSheetMusicToStock(sheetMusic);
-        assertEquals(1, shop.getStock().size());
+    public void testAddMultipleItemsToStock() throws Exception {
+        shop.addItemToStock(sheetMusic);
+        shop.addItemToStock(sheetMusic);
+        shop.addItemToStock(sheetMusic);
+        assertEquals(3, shop.getStock().size());
     }
 
     @Test
-    public void testAddPlectrumToStock() throws Exception {
-        shop.addPlectrumToStock(plectrum);
-        assertEquals(1, shop.getStock().size());
+    public void testRemoveItemFromStock() throws Exception {
+        shop.addItemToStock(plectrum);
+        shop.removeItemFromStock(plectrum);
+        assertEquals(0, shop.getStock().size());
+    }
 
+    @Test
+    public void testTotalStockMargin() throws Exception {
+        shop.addItemToStock(plectrum);
+        shop.addItemToStock(sheetMusic);
+        assertEquals(19, shop.totalProfit());
     }
 }
 
